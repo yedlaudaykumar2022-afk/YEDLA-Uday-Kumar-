@@ -1,0 +1,25 @@
+<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Text To Word</title></head><body><p>1. db.employees.insertOne({<br>&nbsp; &nbsp; empId: 101,<br>&nbsp; &nbsp; name: "John ",<br>&nbsp; &nbsp; age:28 ,<br>&nbsp; &nbsp; department: "Marketing",<br>&nbsp; &nbsp; salary: 38000,<br>&nbsp; &nbsp; city: "Hyderabad",<br>&nbsp; &nbsp; experience: 1,<br>&nbsp; &nbsp; skills: ["SEO", "Content Writing"],<br>&nbsp; &nbsp; active: true<br>})</p>
+<p>2.db.employees.insertMany([<br>&nbsp; {<br>&nbsp; &nbsp; empId: 109,<br>&nbsp; &nbsp; name: "Arjun ",<br>&nbsp; &nbsp; age: 25,<br>&nbsp; &nbsp; department: "HR",<br>&nbsp; &nbsp; salary: 52000,<br>&nbsp; &nbsp; city: "Bangalore",<br>&nbsp; &nbsp; experience: 2,<br>&nbsp; &nbsp; skills: ["Sourcing", "Onboarding"],<br>&nbsp; &nbsp; active: true<br>&nbsp; },<br>&nbsp; {<br>&nbsp; &nbsp; empId: 108,<br>&nbsp; &nbsp; name: "Deepak",<br>&nbsp; &nbsp; age: 35,<br>&nbsp; &nbsp; department: "Finance",<br>&nbsp; &nbsp; salary: 85000,<br>&nbsp; &nbsp; city: "Mumbai",<br>&nbsp; &nbsp; experience: 11,<br>&nbsp; &nbsp; skills: ["Auditing", "Financial Analysis", "SAP"],<br>&nbsp; &nbsp; active: true<br>&nbsp; }<br>])</p>
+<p>3.db.employees.findOne({ department: "IT" })</p>
+<p>4.db.employees.find()</p>
+<p>5.db.employees.find({}, { name: 1, salary: 1, _id: 0 })</p>
+<p>6.db.employees.find({ salary: 50000 })</p>
+<p>7.db.employees.find({ salary: { $lt: 60000 } })</p>
+<p>8.db.employees.find({ salary: { $gte: 60000 } })</p>
+<p>9.db.employees.find({ age: { $ne: 30 } })</p>
+<p>10.db.employees.find({ city: { $in: ["Chennai", "Mumbai"] } })</p>
+<p>11.db.employees.find({ city: { $ne: "Chennai" } })</p>
+<p>12.db.employees.find({ department: "IT", salary: { $gt: 50000 } })</p>
+<p>13.db.employees.find({ $or: [ { city: "Chennai" }, { city: "Bangalore" } ] })</p>
+<p>14.db.employees.find({ salary: { $lte: 60000 } })</p>
+<p>15.db.employees.find({ department: { $nin: ["IT", "HR"] } })</p>
+<p>16.db.employees.find({ experience: { $exists: true } })</p>
+<p>17.db.employees.find({ salary: { $type: "int" } })</p>
+<p>18.db.employees.find({ skills: "MongoDB" })</p>
+<p>19.db.employees.find({<br>&nbsp; $and: [<br>&nbsp; &nbsp; { skills: "MongoDB" },<br>&nbsp; &nbsp; { skills: "AWS" }<br>&nbsp; ]<br>})</p>
+<p>20.db.employees.find({ skills: { $size: 3 } })</p>
+<p>21.db.employees.find({ skills: { $elemMatch: { $eq: "Java" } } })</p>
+<p>22.db.employees.find().sort({ salary: -1 })</p>
+<p>23.db.employees.find().sort({ salary: -1 }).limit(3)</p>
+<p>24.db.employees.updateOne(<br>&nbsp; { empId: 101 },<br>&nbsp; { $inc: { salary: 5000 } }<br>)</p>
+<p>25.db.employees.updateMany(<br>&nbsp; { department: "IT" },<br>&nbsp; [<br>&nbsp; &nbsp; { $set: { salary: { $multiply: ["$salary", 1.10] } } }<br>&nbsp; ]<br>)</p></body></html>
